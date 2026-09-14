@@ -48,6 +48,21 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+@theme {
+  --animate-glow: glow 2.8s ease-in-out infinite;
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 55%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 30px 8px
+        color-mix(in oklch, var(--primary) 38%, transparent);
+    }
+  }
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -72,7 +87,7 @@
   --chart-3: oklch(0.646 0.222 41.116);
   --chart-4: oklch(0.553 0.195 38.402);
   --chart-5: oklch(0.47 0.157 37.304);
-  --radius: 0.625rem;
+  --radius: 0rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.646 0.222 41.116);
@@ -124,10 +139,84 @@
   body {
     @apply bg-background text-foreground;
   }
-  button:not(:disabled), [role="button"]:not(:disabled) {
+  html[data-intro="seen"] [data-welcome-intro] {
+    display: none;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
     cursor: pointer;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  section[id],
+  [data-scroll-target] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@keyframes intro-grid-pan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+@keyframes intro-scan {
+  0% {
+    top: -25%;
+  }
+  100% {
+    top: 125%;
+  }
+}
+
+.intro-grid {
+  background-image:
+    linear-gradient(rgba(255, 190, 150, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 190, 150, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: intro-grid-pan 2.5s linear infinite;
+}
+
+.intro-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 190, 150, 0.07),
+    transparent
+  );
+  animation: intro-scan 2.4s linear infinite;
+}
+
+.intro-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.intro-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.08;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-grid,
+  .intro-scanline {
+    animation: none;
   }
 }
