@@ -1,0 +1,20 @@
+model Profile {
+  id          String   @id @default(uuid())
+  headline    String
+  bio         String   @db.Text
+  resumeUrl   String?
+  avatarUrl   String?
+  
+  email       String
+  phone       String?
+  location    String?
+  
+  github      String?
+  linkedin    String?
+  twitter     String?
+  codeforces  String?
+  
+  updatedAt   DateTime @updatedAt
+
+  @@map("profile")
+}
