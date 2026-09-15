@@ -7,18 +7,18 @@ import { cn } from "@/lib/utils";
 import { INTRO_ICONS, type IntroDirection } from "./intro-icons";
 
 const NAME_GRADIENT =
-  "linear-gradient(90deg, oklch(0.70 0.19 45), oklch(0.80 0.15 200), oklch(0.68 0.20 300), oklch(0.85 0.19 130))";
+  "linear-gradient(90deg, oklch(0.60 0.20 38), oklch(0.72 0.17 55), oklch(0.58 0.19 28))";
 
 const TERMINAL_LINES = [
-  { text: "$ npm run build", className: "text-white/80" },
-  { text: "▲ compiling portfolio…", className: "text-white/55" },
+  { text: "$ npm run build", className: "text-foreground/80" },
+  { text: "▲ compiling portfolio…", className: "text-muted-foreground" },
   {
     text: "✔ 42 modules transformed",
-    className: "text-[oklch(0.85_0.19_130)]",
+    className: "text-[oklch(0.55_0.16_150)]",
   },
   {
     text: "✔ optimized for production",
-    className: "text-[oklch(0.85_0.19_130)]",
+    className: "text-[oklch(0.55_0.16_150)]",
   },
 ];
 
@@ -372,14 +372,14 @@ export function WelcomeIntro() {
       ref={overlayRef}
       data-welcome-intro
       aria-hidden
-      className="fixed inset-0 z-[100] overflow-hidden bg-[oklch(0.11_0.02_40)]"
+      className="fixed inset-0 z-[100] overflow-hidden bg-[oklch(0.99_0.012_75)]"
     >
       <div data-intro-bg className="absolute inset-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 120% at 50% 38%, oklch(0.19 0.05 45), oklch(0.11 0.02 40) 70%)",
+              "radial-gradient(120% 120% at 50% 38%, oklch(0.96 0.04 62), oklch(0.99 0.012 75) 70%)",
           }}
         />
         <div className="intro-grid absolute inset-0" />
@@ -415,12 +415,12 @@ export function WelcomeIntro() {
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <div className="flex w-full max-w-xl flex-col items-center gap-8">
             <div data-intro-terminal className="w-full max-w-md">
-              <div className="border border-white/10 bg-[oklch(0.15_0.03_40)/85] shadow-[0_0_60px_rgba(255,140,80,0.08)] backdrop-blur-md">
-                <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-2.5">
+              <div className="border border-border bg-card/85 shadow-[0_12px_60px_rgba(255,140,80,0.16)] backdrop-blur-md">
+                <div className="flex items-center gap-2 border-b border-border bg-muted/60 px-4 py-2.5">
                   <span className="size-2 bg-[oklch(0.70_0.19_45)]" />
                   <span className="size-2 bg-[oklch(0.80_0.15_200)]" />
                   <span className="size-2 bg-[oklch(0.85_0.19_130)]" />
-                  <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
+                  <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     rafi@portfolio: ~/build
                   </span>
                 </div>
@@ -435,11 +435,11 @@ export function WelcomeIntro() {
                     ))}
                     <span
                       data-intro-caret
-                      className="ml-0.5 inline-block h-4 w-2 translate-y-0.5 bg-[oklch(0.85_0.19_130)]"
+                      className="ml-0.5 inline-block h-4 w-2 translate-y-0.5 bg-[oklch(0.55_0.16_150)]"
                     />
                   </div>
                 </div>
-                <div className="h-1 w-full bg-white/10">
+                <div className="h-1 w-full bg-border">
                   <div
                     data-intro-bar-fill
                     className="h-full w-full"
@@ -467,7 +467,7 @@ export function WelcomeIntro() {
               </h1>
               <p
                 data-intro-role
-                className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-white/70 sm:text-xs"
+                className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-muted-foreground sm:text-xs"
               >
                 Full-Stack Developer
               </p>
@@ -484,41 +484,41 @@ export function WelcomeIntro() {
       <div data-intro-hud className="absolute inset-0 z-30">
         <div
           data-intro-bracket
-          className="absolute left-2 top-2 size-6 border-l-2 border-t-2 border-white/40 sm:size-8"
+          className="absolute left-2 top-2 size-6 border-l-2 border-t-2 border-foreground/30 sm:size-8"
         />
         <div
           data-intro-bracket
-          className="absolute right-2 top-2 size-6 border-r-2 border-t-2 border-white/40 sm:size-8"
+          className="absolute right-2 top-2 size-6 border-r-2 border-t-2 border-foreground/30 sm:size-8"
         />
         <div
           data-intro-bracket
-          className="absolute bottom-2 left-2 size-6 border-b-2 border-l-2 border-white/40 sm:size-8"
+          className="absolute bottom-2 left-2 size-6 border-b-2 border-l-2 border-foreground/30 sm:size-8"
         />
         <div
           data-intro-bracket
-          className="absolute bottom-2 right-2 size-6 border-b-2 border-r-2 border-white/40 sm:size-8"
+          className="absolute bottom-2 right-2 size-6 border-b-2 border-r-2 border-foreground/30 sm:size-8"
         />
         <p
           data-intro-hud-label
-          className="absolute left-3 top-16 font-mono text-[10px] uppercase tracking-[0.25em] text-white/50 sm:left-5"
+          className="absolute left-3 top-16 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:left-5"
         >
           portfolio · v2.0
         </p>
         <p
           data-intro-hud-label
-          className="absolute right-3 top-16 font-mono text-[10px] uppercase tracking-[0.25em] text-white/50 sm:right-5"
+          className="absolute right-3 top-16 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:right-5"
         >
           boot sequence
         </p>
         <p
           data-intro-hud-label
-          className="absolute bottom-16 left-3 font-mono text-[10px] uppercase tracking-[0.25em] text-white/50 sm:left-5"
+          className="absolute bottom-16 left-3 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:left-5"
         >
           stack: react + node
         </p>
         <p
           data-intro-percent
-          className="absolute bottom-16 right-3 font-mono text-[10px] tracking-[0.25em] text-white/70 sm:right-5"
+          className="absolute bottom-16 right-3 font-mono text-[10px] tracking-[0.25em] text-foreground/70 sm:right-5"
         >
           000
         </p>
@@ -526,11 +526,11 @@ export function WelcomeIntro() {
 
       <div
         data-intro-bar-top
-        className="absolute inset-x-0 top-0 z-40 h-14 border-b border-white/10 bg-[oklch(0.09_0.02_40)] sm:h-16"
+        className="absolute inset-x-0 top-0 z-40 h-14 border-b border-border bg-[oklch(0.97_0.02_68)] sm:h-16"
       />
       <div
         data-intro-bar-bottom
-        className="absolute inset-x-0 bottom-0 z-40 h-14 border-t border-white/10 bg-[oklch(0.09_0.02_40)] sm:h-16"
+        className="absolute inset-x-0 bottom-0 z-40 h-14 border-t border-border bg-[oklch(0.97_0.02_68)] sm:h-16"
       />
 
       {PANEL_DIRS.map(([x, y], index) => (
@@ -538,7 +538,7 @@ export function WelcomeIntro() {
           key={`${x}-${y}`}
           data-intro-panel
           className={cn(
-            "absolute z-50 h-[51%] w-[51%] bg-[oklch(0.12_0.03_40)]",
+            "absolute z-50 h-[51%] w-[51%] bg-[oklch(0.98_0.02_70)]",
             index === 0 && "left-0 top-0",
             index === 1 && "right-0 top-0",
             index === 2 && "bottom-0 left-0",

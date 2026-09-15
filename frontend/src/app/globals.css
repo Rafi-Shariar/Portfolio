@@ -180,8 +180,8 @@
 
 .intro-grid {
   background-image:
-    linear-gradient(rgba(255, 190, 150, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 190, 150, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(190, 90, 35, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 90, 35, 0.08) 1px, transparent 1px);
   background-size: 48px 48px;
   animation: intro-grid-pan 2.5s linear infinite;
 }
@@ -194,7 +194,7 @@
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(255, 190, 150, 0.07),
+    rgba(190, 90, 35, 0.06),
     transparent
   );
   animation: intro-scan 2.4s linear infinite;
@@ -204,19 +204,52 @@
   background: radial-gradient(
     ellipse at center,
     transparent 55%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(180, 90, 40, 0.12) 100%
   );
 }
 
 .intro-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  opacity: 0.08;
+  mix-blend-mode: multiply;
+  opacity: 0.04;
+}
+
+.hero-dots {
+  background-image: radial-gradient(
+    oklch(0.55 0.19 42 / 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(
+    90% 80% at 50% 45%,
+    #000 20%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(90% 80% at 50% 45%, #000 20%, transparent 80%);
+}
+
+@keyframes hero-cue {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(340%);
+    opacity: 0;
+  }
+}
+
+.hero-cue-dot {
+  animation: hero-cue 2.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .intro-grid,
-  .intro-scanline {
+  .intro-scanline,
+  .hero-cue-dot {
     animation: none;
   }
 }

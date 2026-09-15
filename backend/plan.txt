@@ -1,0 +1,38 @@
+Projects part plan : 
+1st we will update the projects model. 
+As there will be 4/5 screeen shots of the project so i will shift make another model for images with something like 
+{
+    id: 
+    projectId: 
+    imageURL: 
+    caption?: 
+}
+
+by this i will be able to update or delete images from projects. 
+
+Also the project model will incorporate a new field named "WalkThrougVedio" , this will contain a link to explanation vedio. 
+
+For API's 
+Public API's 
+/project/featured -> will pool 3 featured projects
+/project -> will pool all the projects sorted in recently created, no searching/filtering
+/project/slug -> will get details of a single project
+
+Admin API's
+
+/admin/project -> get all projects
+/admin/project -> get project details
+/admin/project -> add new project
+/admin/project -> delete project - soft delete
+/admin/project -> udpdate project data
+/admin/project -> update publication status
+/admin/project -> update featured status
+
+
+1. is Deleted - T/F
+2. No image ordring
+3. yes
+4. good
+5. which ever is perfect. Image part will only be handled by frontend
+6. If needed, or we can do it my in project update route, just changing the imageURL or keeping null if Deleted
+7 . API will get project/:id i we will update the isDeleted and what ever is simple for a portfolio website

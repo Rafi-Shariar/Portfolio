@@ -140,3 +140,9 @@ All public content is database-driven and editable. Public site uses fluid GSAP 
 - **CHANGE/EDIT:** break large features into parallelizable tasks and delegate; never leave syntax errors, broken imports, or `TODO` placeholders; always run lint + typecheck + build/test after changes.
 - **DO NOT** generate frontend UI until the user explicitly confirms the architectural proposal.
 - **CLEANUP FIRST:** fix the template's typecheck failures and leftover code before building any feature.
+
+## TOKEN PRESERVATION & TOOL RULES
+- NEVER run broad filesystem discovery (`find .`, recursive `ls`, searching inside `node_modules`).
+- Do not inspect image metadata or installed icon packages via bash.
+- Directly create or edit the target file without exploring unaffected directories.
+- Keep tool calls to a minimum: strictly read target files, write code, and run build/lint verification only at the end.

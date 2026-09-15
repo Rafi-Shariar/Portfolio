@@ -1,32 +1,33 @@
 model Project {
-  id               String      @id @default(uuid())
-  name             String
-  slug             String      @unique
-  type             String
-  shortDescription String      @db.VarChar(280)
-  description      String      @db.Text
-  
-  frontendTech     String[]
-  backendTech      String[]
-  tools            String[]
-  
-  githubClient     String?
-  githubServer     String?
-  liveUrl          String?
-  
-  keyFeatures      String[]
-  challengesFaced  String[]
-  futurePlans      String[]
-  
-  images           String[]    // Cloudinary URLs
-  
-  isFeatured       Boolean     @default(false)
-  isPublished      Boolean     @default(true)
-  order            Int         @default(0)
-  
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
+  id                  String         @id @default(uuid())
+  name                String
+  slug                String         @unique
+  type                String
+  shortDescription    String         @db.VarChar(280)
+  description         String         @db.Text
 
-  @@index([isPublished, isFeatured])
+  frontendTech        String[]
+  backendTech         String[]
+  tools               String[]
+
+  githubClient        String
+  githubServer        String
+  liveUrl             String
+  walkthroughVideoUrl String?
+
+  keyFeatures         String[]
+  challengesFaced     String[]
+  futurePlans         String[]
+
+  images              ProjectImage[]
+
+  isFeatured          Boolean        @default(false)
+  isPublished         Boolean        @default(true)
+  isDeleted           Boolean        @default(false)
+
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  @@index([isPublished, isFeatured, isDeleted])
   @@map("projects")
 }

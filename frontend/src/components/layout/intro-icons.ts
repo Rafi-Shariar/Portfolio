@@ -27,11 +27,11 @@ export type IntroIconConfig = {
 };
 
 export const NEON = {
-  orange: "oklch(0.70 0.19 45)",
-  cyan: "oklch(0.80 0.15 200)",
-  violet: "oklch(0.68 0.20 300)",
-  pink: "oklch(0.72 0.22 350)",
-  lime: "oklch(0.85 0.19 130)",
+  orange: "oklch(0.62 0.2 45)",
+  cyan: "oklch(0.58 0.14 210)",
+  violet: "oklch(0.55 0.2 300)",
+  pink: "oklch(0.58 0.22 350)",
+  lime: "oklch(0.55 0.16 150)",
 } as const;
 
 export const INTRO_ICONS: IntroIconConfig[] = [

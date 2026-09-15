@@ -1,24 +1,50 @@
 import type { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
-import type z from "zod";
+import type { ZodType } from "zod";
 import { AppError } from "../utils/AppError";
 import { catchAsync } from "../utils/catchAsync";
 
-export const validateRequest = (zodSchema: z.ZodObject) => {
-	return catchAsync((req: Request, res: Response, next: NextFunction) => {
-		// const payload = req.body ? req.body : {}
-		const payload = req.body ?? {};
+type RequestSchemas = {
+	body?: ZodType;
+	query?: ZodType;
+	params?: ZodType;
+};
 
-		const result = zodSchema.safeParse(payload);
+export const validateRequest = (schemas: ZodType | RequestSchemas) => {
+	return catchAsync((req: Request, _res: Response, next: NextFunction) => {
+		const normalized: RequestSchemas =
+			"safeParse" in schemas ? { body: schemas } : schemas;
 
-		if (!result.success) {
-			console.log(result.error);
-			console.log(result.error.issues);
-
-			throw new AppError(httpStatus.BAD_REQUEST, result.error.issues[0].message);
+		if (normalized.body) {
+			const result = normalized.body.safeParse(req.body ?? {});
+			if (!result.success) {
+				throw new AppError(
+					httpStatus.BAD_REQUEST,
+					result.error.issues[0].message,
+				);
+			}
+			req.body = result.data;
 		}
 
-		req.body = result.data;
+		if (normalized.query) {
+			const result = normalized.query.safeParse(req.query ?? {});
+			if (!result.success) {
+				throw new AppError(
+					httpStatus.BAD_REQUEST,
+					result.error.issues[0].message,
+				);
+			}
+		}
+
+		if (normalized.params) {
+			const result = normalized.params.safeParse(req.params ?? {});
+			if (!result.success) {
+				throw new AppError(
+					httpStatus.BAD_REQUEST,
+					result.error.issues[0].message,
+				);
+			}
+		}
 
 		next();
 	});
