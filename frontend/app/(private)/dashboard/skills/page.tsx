@@ -9,8 +9,6 @@ import SkillTable from "@/components/dashbaord/skills/SkillsTable";
 import SkillFormModal from "@/components/dashbaord/skills/SkillFormModal";
 import DeleteSkillModal from "@/components/dashbaord/skills/DeleteSkillModal";
 
-
-
 export default function SkillPage() {
   const { data: response, isLoading } = useGetSkills();
 

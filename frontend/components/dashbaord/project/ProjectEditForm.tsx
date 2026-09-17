@@ -59,9 +59,11 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [existingImages, setExistingImages] = useState<ExistingImage[]>(
-    initialProject.images || []
+    initialProject.images || [],
   );
-  const [newSelectedImages, setNewSelectedImages] = useState<NewSelectedImage[]>([]);
+  const [newSelectedImages, setNewSelectedImages] = useState<
+    NewSelectedImage[]
+  >([]);
   const [isUploadingImages, setIsUploadingImages] = useState(false);
 
   // New Image Selection
@@ -200,7 +202,10 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
           isPublished: Boolean(value.isPublished),
         };
 
-        if (value.walkthroughVideoUrl && value.walkthroughVideoUrl.trim() !== "") {
+        if (
+          value.walkthroughVideoUrl &&
+          value.walkthroughVideoUrl.trim() !== ""
+        ) {
           payload.walkthroughVideoUrl = value.walkthroughVideoUrl.trim();
         }
 
@@ -214,7 +219,7 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
             onError: (err: any) => {
               toast.error(err?.message || "Failed to update project.");
             },
-          }
+          },
         );
       } catch (err: any) {
         toast.error("Failed to upload new media.");
@@ -254,7 +259,10 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
               </a>
             </div>
             <p className="text-xs sm:text-sm text-neutral-500 mt-0.5">
-              Slug: <span className="font-mono text-orange-600 font-medium">/{initialProject.slug}</span>
+              Slug:{" "}
+              <span className="font-mono text-orange-600 font-medium">
+                /{initialProject.slug}
+              </span>
             </p>
           </div>
 
@@ -316,7 +324,8 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-bold uppercase tracking-wider text-orange-700/90 flex items-center gap-1"
                     >
-                      Project Type / Classification <span className="text-red-500">*</span>
+                      Project Type / Classification{" "}
+                      <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id={field.name}
@@ -645,8 +654,8 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
                         const val = e.target.value;
                         setNewSelectedImages((prev) =>
                           prev.map((item, i) =>
-                            i === idx ? { ...item, caption: val } : item
-                          )
+                            i === idx ? { ...item, caption: val } : item,
+                          ),
                         );
                       }}
                       className="h-7 text-xs bg-white rounded-[6px] border-neutral-200"
@@ -829,7 +838,11 @@ export function ProjectEditForm({ initialProject }: ProjectEditFormProps) {
               {isPending ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>{isUploadingImages ? "Uploading Media..." : "Saving Changes..."}</span>
+                  <span>
+                    {isUploadingImages
+                      ? "Uploading Media..."
+                      : "Saving Changes..."}
+                  </span>
                 </>
               ) : (
                 <>

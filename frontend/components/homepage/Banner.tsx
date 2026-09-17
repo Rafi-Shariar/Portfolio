@@ -40,7 +40,8 @@ export default function HeroBanner() {
     },
     {
       name: "Facebook",
-      href: profile?.facebook || "https://www.facebook.com/rafi.shariar.630040/",
+      href:
+        profile?.facebook || "https://www.facebook.com/rafi.shariar.630040/",
       icon: FaFacebookF,
       show: Boolean(profile?.facebook),
     },
@@ -69,7 +70,7 @@ export default function HeroBanner() {
             y: -20,
             duration: 0.8,
           },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".banner-subject",
@@ -79,7 +80,7 @@ export default function HeroBanner() {
             duration: 1,
             ease: "power2.out",
           },
-          "-=0.6"
+          "-=0.6",
         )
         .from(
           ".floating-tech-badge",
@@ -91,7 +92,7 @@ export default function HeroBanner() {
             duration: 0.6,
             ease: "back.out(1.7)",
           },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".banner-text-bottom",
@@ -101,7 +102,7 @@ export default function HeroBanner() {
             stagger: 0.1,
             duration: 0.6,
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           ".banner-bottom-dock",
@@ -111,7 +112,7 @@ export default function HeroBanner() {
             duration: 0.6,
             ease: "back.out(1.4)",
           },
-          "-=0.3"
+          "-=0.3",
         );
 
       // ফ্লোটিং ব্যাজ মোশন
@@ -147,7 +148,7 @@ export default function HeroBanner() {
         delay: 0.2,
       });
     },
-    { scope: bannerRef }
+    { scope: bannerRef },
   );
 
   return (

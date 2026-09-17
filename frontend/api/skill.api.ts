@@ -19,7 +19,6 @@ export const updateSkill = ({
   return apiClient(`/api/v1/skill/${id}`, { method: "PATCH", body: payload });
 };
 
-
-export const deleteSkill = (id : string) => {
+export const deleteSkill = (id: string) => {
   return apiClient(`/api/v1/skill/${id}`, { method: "DELETE" });
 };

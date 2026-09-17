@@ -73,7 +73,7 @@ export default function CreateProjectPage() {
 
   const handleCaptionChange = (index: number, caption: string) => {
     setSelectedImages((prev) =>
-      prev.map((img, i) => (i === index ? { ...img, caption } : img))
+      prev.map((img, i) => (i === index ? { ...img, caption } : img)),
     );
   };
 
@@ -120,7 +120,7 @@ export default function CreateProjectPage() {
       isFeatured: false,
       isPublished: true,
     },
-   onSubmit: async ({ value }) => {
+    onSubmit: async ({ value }) => {
       // Client validation for required URLs
       if (!value.name?.trim()) {
         toast.error("Project name is required!");
@@ -143,7 +143,8 @@ export default function CreateProjectPage() {
 
       try {
         // ১. ক্লাউডিনারিতে ছবি আপলোড
-        const uploadedImages: Array<{ imageUrl: string; caption?: string }> = [];
+        const uploadedImages: Array<{ imageUrl: string; caption?: string }> =
+          [];
 
         for (const item of selectedImages) {
           const cloudUrl = await uploadImageToCloudinary(item.file);
@@ -179,7 +180,10 @@ export default function CreateProjectPage() {
         };
 
         // walkthroughVideoUrl কেবল ভ্যালু থাকলেই পাঠানো হবে (কখনোই null না)
-        if (value.walkthroughVideoUrl && value.walkthroughVideoUrl.trim() !== "") {
+        if (
+          value.walkthroughVideoUrl &&
+          value.walkthroughVideoUrl.trim() !== ""
+        ) {
           payload.walkthroughVideoUrl = value.walkthroughVideoUrl.trim();
         }
 
@@ -226,7 +230,8 @@ export default function CreateProjectPage() {
             Create New Project<span className="text-orange-600">.</span>
           </h1>
           <p className="text-xs sm:text-sm text-neutral-500 mt-0.5">
-            Showcase your development architecture, features, repositories, and screenshots.
+            Showcase your development architecture, features, repositories, and
+            screenshots.
           </p>
         </div>
       </div>
@@ -278,7 +283,10 @@ export default function CreateProjectPage() {
                     />
                     {field.state.value && (
                       <p className="text-[11px] text-neutral-400 font-mono">
-                        Slug: <span className="text-orange-600 font-medium">/{generateSlug(field.state.value)}</span>
+                        Slug:{" "}
+                        <span className="text-orange-600 font-medium">
+                          /{generateSlug(field.state.value)}
+                        </span>
                       </p>
                     )}
                   </div>
@@ -292,7 +300,8 @@ export default function CreateProjectPage() {
                       htmlFor={field.name}
                       className="text-xs font-bold uppercase tracking-wider text-orange-700/90 flex items-center gap-1"
                     >
-                      Project Type / Classification <span className="text-red-500">*</span>
+                      Project Type / Classification{" "}
+                      <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id={field.name}
@@ -315,7 +324,8 @@ export default function CreateProjectPage() {
                       htmlFor={field.name}
                       className="text-xs font-bold uppercase tracking-wider text-orange-700/90 flex items-center gap-1"
                     >
-                      Short Description (Card Banner) <span className="text-red-500">*</span>
+                      Short Description (Card Banner){" "}
+                      <span className="text-red-500">*</span>
                     </Label>
                     <span className="text-[11px] text-neutral-400 font-mono">
                       {field.state.value.length}/280
@@ -341,7 +351,8 @@ export default function CreateProjectPage() {
                     htmlFor={field.name}
                     className="text-xs font-bold uppercase tracking-wider text-orange-700/90 flex items-center gap-1"
                   >
-                    Full In-depth Description <span className="text-red-500">*</span>
+                    Full In-depth Description{" "}
+                    <span className="text-red-500">*</span>
                   </Label>
                   <textarea
                     id={field.name}
@@ -450,7 +461,8 @@ export default function CreateProjectPage() {
                       htmlFor={field.name}
                       className="text-xs font-bold uppercase tracking-wider text-orange-700/90 flex items-center gap-1"
                     >
-                      GitHub Client Repo URL <span className="text-red-500">*</span>
+                      GitHub Client Repo URL{" "}
+                      <span className="text-red-500">*</span>
                     </Label>
                     <Input
                       id={field.name}
@@ -611,7 +623,9 @@ export default function CreateProjectPage() {
                       <Input
                         placeholder="Caption (e.g. Dashboard view)"
                         value={img.caption}
-                        onChange={(e) => handleCaptionChange(idx, e.target.value)}
+                        onChange={(e) =>
+                          handleCaptionChange(idx, e.target.value)
+                        }
                         className="h-8 text-xs bg-white rounded-[8px] border-neutral-200"
                       />
                     </div>
@@ -799,7 +813,11 @@ export default function CreateProjectPage() {
               {isPending ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>{isUploadingImages ? "Uploading Media..." : "Saving Project..."}</span>
+                  <span>
+                    {isUploadingImages
+                      ? "Uploading Media..."
+                      : "Saving Project..."}
+                  </span>
                 </>
               ) : (
                 <>

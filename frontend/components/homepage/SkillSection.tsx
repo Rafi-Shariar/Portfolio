@@ -32,7 +32,7 @@ export default function SkillsSection() {
 
   const totalSkillsCount = Object.values(skillsGroup).reduce(
     (acc, list) => acc + list.length,
-    0
+    0,
   );
 
   const filteredCategories =
@@ -58,7 +58,7 @@ export default function SkillsSection() {
         stagger: 0.1,
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -70,15 +70,13 @@ export default function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-12 sm:mb-14">
-         
-          
           <h2 className="skills-header-anim text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-900">
             Skills & Core Competencies<span className="text-orange-600">.</span>
           </h2>
-          
+
           <p className="skills-header-anim text-xs sm:text-sm text-neutral-500  font-medium leading-relaxed">
-            Languages, frameworks, databases, and developer tooling I utilize
-            to build robust, end-to-end web applications.
+            Languages, frameworks, databases, and developer tooling I utilize to
+            build robust, end-to-end web applications.
           </p>
         </div>
 

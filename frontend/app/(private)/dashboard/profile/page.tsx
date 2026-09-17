@@ -108,13 +108,14 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
           acc[key as keyof IUpdateProfile] = val === "" ? null : (val as any);
           return acc;
         },
-        {} as Record<keyof IUpdateProfile, any>
+        {} as Record<keyof IUpdateProfile, any>,
       );
 
       onUpdate(sanitizedPayload as IUpdateProfile, {
         onSuccess: () => {
           toast.success("Profile Updated", {
-            description: "Your portfolio information has been saved successfully.",
+            description:
+              "Your portfolio information has been saved successfully.",
           });
         },
         onError: (err: any) => {
@@ -138,7 +139,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
           Manage Identity & Bio<span className="text-orange-600">.</span>
         </h1>
         <p className="text-xs sm:text-sm text-neutral-500 mt-1">
-          Modify headline, contact details, competitive programming links, and long-form bio.
+          Modify headline, contact details, competitive programming links, and
+          long-form bio.
         </p>
       </div>
 
@@ -195,7 +197,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -226,7 +230,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -259,7 +265,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -291,7 +299,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -347,7 +357,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -378,7 +390,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -395,7 +409,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                         htmlFor={field.name}
                         className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                       >
-                        <MapPin className="w-3.5 h-3.5 text-orange-500" /> Location
+                        <MapPin className="w-3.5 h-3.5 text-orange-500" />{" "}
+                        Location
                       </Label>
                       <Input
                         id={field.name}
@@ -409,7 +424,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                             : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                         }`}
                       />
-                      {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
                     </div>
                   );
                 }}
@@ -425,7 +442,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                     >
-                      <Globe className="w-3.5 h-3.5 text-neutral-400" /> GitHub URL
+                      <Globe className="w-3.5 h-3.5 text-neutral-400" /> GitHub
+                      URL
                     </Label>
                     <Input
                       id={field.name}
@@ -446,7 +464,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                     >
-                      <Globe className="w-3.5 h-3.5 text-neutral-400" /> LinkedIn URL
+                      <Globe className="w-3.5 h-3.5 text-neutral-400" />{" "}
+                      LinkedIn URL
                     </Label>
                     <Input
                       id={field.name}
@@ -467,7 +486,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                     >
-                      <Globe className="w-3.5 h-3.5 text-neutral-400" /> Facebook URL
+                      <Globe className="w-3.5 h-3.5 text-neutral-400" />{" "}
+                      Facebook URL
                     </Label>
                     <Input
                       id={field.name}
@@ -491,7 +511,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                     >
-                      <Code2 className="w-3.5 h-3.5 text-neutral-400" /> Codeforces URL
+                      <Code2 className="w-3.5 h-3.5 text-neutral-400" />{" "}
+                      Codeforces URL
                     </Label>
                     <Input
                       id={field.name}
@@ -513,7 +534,8 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                       htmlFor={field.name}
                       className="text-xs font-semibold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5"
                     >
-                      <Code2 className="w-3.5 h-3.5 text-neutral-400" /> LeetCode URL
+                      <Code2 className="w-3.5 h-3.5 text-neutral-400" />{" "}
+                      LeetCode URL
                     </Label>
                     <Input
                       id={field.name}
@@ -575,7 +597,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                           : "border-neutral-200 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                       }`}
                     />
-                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                    {isInvalid && (
+                      <FieldError errors={field.state.meta.errors} />
+                    )}
                   </div>
                 );
               }}
@@ -607,7 +631,9 @@ function ProfileForm({ defaultValues, onUpdate, isPending }: ProfileFormProps) {
                           : "border-neutral-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20"
                       }`}
                     />
-                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
+                    {isInvalid && (
+                      <FieldError errors={field.state.meta.errors} />
+                    )}
                   </div>
                 );
               }}

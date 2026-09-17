@@ -41,7 +41,7 @@ export default function AdminProjectsPage() {
         toast.success(
           project.isFeatured
             ? `"${project.name}" removed from featured.`
-            : `"${project.name}" marked as featured.`
+            : `"${project.name}" marked as featured.`,
         );
       },
       onError: (err: any) => {
@@ -66,7 +66,8 @@ export default function AdminProjectsPage() {
             Projects Management<span className="text-orange-600">.</span>
           </h1>
           <p className="text-xs sm:text-sm text-neutral-500 mt-0.5">
-            Manage showcase projects, assign home featured slots, and review links.
+            Manage showcase projects, assign home featured slots, and review
+            links.
           </p>
         </div>
 
@@ -132,7 +133,8 @@ export default function AdminProjectsPage() {
                   Other Projects
                 </h2>
                 <p className="text-xs text-neutral-500">
-                  All remaining live and archived portfolio entries ({regularProjects.length}).
+                  All remaining live and archived portfolio entries (
+                  {regularProjects.length}).
                 </p>
               </div>
             </div>

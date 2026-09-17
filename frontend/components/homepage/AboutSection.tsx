@@ -61,7 +61,7 @@ export default function AboutSection() {
             opacity: 0,
             y: 30,
           },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".about-card-left",
@@ -69,7 +69,7 @@ export default function AboutSection() {
             opacity: 0,
             x: -30,
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           ".about-card-right",
@@ -77,10 +77,10 @@ export default function AboutSection() {
             opacity: 0,
             x: 30,
           },
-          "-=0.6"
+          "-=0.6",
         );
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -91,7 +91,6 @@ export default function AboutSection() {
     >
       {/* Section Header */}
       <div className="flex flex-col items-center text-center space-y-2 mb-12 sm:mb-16">
-       
         <h2 className="about-heading text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950">
           Crafting Digital Solutions with Logic & Design
           <span className="text-orange-600">.</span>
@@ -101,7 +100,6 @@ export default function AboutSection() {
       {/* Grid Layout */}
       {/* Grid Layout - items-stretch ensure equal height on large screens */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-        
         {/* Left Column: Narrative Storytelling (7 cols) */}
         <div className="about-card-left lg:col-span-7 bg-white rounded-[16px] border border-orange-200/80 p-6 sm:p-8 shadow-xs flex flex-col justify-between relative overflow-hidden">
           {/* Subtle Corner Glow */}
@@ -136,9 +134,8 @@ export default function AboutSection() {
 
         {/* Right Column: Profile Cards Stack (5 cols) */}
         <div className="about-card-right lg:col-span-5 flex flex-col gap-5 justify-between">
-          
           {/* Quick Details Card (Flex-1 expands to match left height perfectly) */}
-         <div className="bg-[#FFFDF9] rounded-[16px] border border-orange-200/80 p-6 sm:p-7 shadow-xs flex flex-col justify-between flex-1">
+          <div className="bg-[#FFFDF9] rounded-[16px] border border-orange-200/80 p-6 sm:p-7 shadow-xs flex flex-col justify-between flex-1">
             <div>
               <h4 className="text-base font-bold text-neutral-900 border-b border-orange-100/80 pb-3">
                 Quick Details
@@ -280,7 +277,6 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -1,7 +1,5 @@
-
 import { getProfile, profileUpdate } from "@/api/profile.api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
 
 export function useGetProfile() {
   return useQuery({
@@ -15,10 +13,8 @@ export function useProfileUpdate() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: profileUpdate,
-    onSuccess : ()=> {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
-    }
+    },
   });
 }
-
-

@@ -1,13 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  Star, 
-  Eye, 
-  ExternalLink, 
-  Video, 
-  Globe 
-} from "lucide-react";
+import { Star, Eye, ExternalLink, Video, Globe } from "lucide-react";
 import {
   Table,
   TableBody,

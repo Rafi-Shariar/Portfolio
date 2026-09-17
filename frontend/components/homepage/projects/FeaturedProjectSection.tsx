@@ -38,34 +38,35 @@ export default function FeaturedProjectsSection() {
         stagger: 0.1,
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section
       id="projects"
       ref={sectionRef}
-      className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-28"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-26"
     >
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-16 sm:mb-20">
-        <div className="space-y-2">
-          
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-16">
+        {/* বামের হেডার ও সাবটাইটেল */}
+        <div className="space-y-2 ">
           <h2 className="featured-header-anim text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-950">
             Projects I Have Engineered<span className="text-orange-600">.</span>
           </h2>
-          <p className="featured-header-anim text-xs sm:text-sm text-neutral-500  font-normal">
-            A showcase of full-stack web applications featuring scalable backends,
-            real-time communications, and secure integrations.
+          <p className="featured-header-anim text-xs sm:text-sm text-neutral-500 font-normal leading-relaxed">
+            A showcase of full-stack web applications featuring scalable
+            backends, real-time communications, and secure integrations.
           </p>
         </div>
 
+        {/* ডানের বাটন (shrink-0 এবং কোনো অ্যানিমেশন গ্লিচ ছাড়া সরাসরি দৃশ্যমান) */}
         <Link
           href="/projects"
-          className="featured-header-anim inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-white border border-neutral-200/80 text-xs font-bold text-neutral-800 hover:border-orange-500 hover:text-orange-600 shadow-2xs transition-all active:scale-95"
+          className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-orange-600 text-white border border-neutral-200/80 text-xs font-bold text-neutral-800 hover:border-orange-500 hover:text-orange-600 shadow-2xs transition-all active:scale-95"
         >
           <span>Explore All Projects</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5 text-white" />
         </Link>
       </div>
 

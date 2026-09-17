@@ -33,7 +33,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
-  const {mutate: login} = useLogin()
+  const { mutate: login } = useLogin();
 
   const form = useForm({
     defaultValues: {
@@ -46,34 +46,31 @@ export default function LoginPage() {
     onSubmit: async ({ value }) => {
       setIsPending(true);
       try {
-        
         const loginData = {
-        email: value.email,
-        password: value.password,
-      };
+          email: value.email,
+          password: value.password,
+        };
 
-       login(loginData, {
-        onSuccess: (_res) => {
-          router.push("/dashboard");
-          toast.success("Login Successful.", {
-            description: "Welcome back",
-            position: "top-right",
-          });
-        },
-        onError: (err: any) => {
-          const errorDescription =
-            err?.data?.message ||
-            err?.message ||
-            "Something went wrong. Please try again";
+        login(loginData, {
+          onSuccess: (_res) => {
+            router.push("/dashboard");
+            toast.success("Login Successful.", {
+              description: "Welcome back",
+              position: "top-right",
+            });
+          },
+          onError: (err: any) => {
+            const errorDescription =
+              err?.data?.message ||
+              err?.message ||
+              "Something went wrong. Please try again";
 
-          toast.error("Login Failed.", {
-            description: errorDescription,
-            position: "top-right",
-          });
-        },
-      });
-
-
+            toast.error("Login Failed.", {
+              description: errorDescription,
+              position: "top-right",
+            });
+          },
+        });
       } finally {
         setIsPending(false);
       }

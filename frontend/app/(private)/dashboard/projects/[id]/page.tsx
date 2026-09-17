@@ -36,9 +36,12 @@ export default function ProjectDetailsPage({
           <AlertCircle className="w-6 h-6" />
         </div>
         <div>
-          <h2 className="text-lg font-bold text-neutral-900">Project Not Found</h2>
+          <h2 className="text-lg font-bold text-neutral-900">
+            Project Not Found
+          </h2>
           <p className="text-xs text-neutral-500 mt-1">
-            The project you are looking for might have been deleted or doesn't exist.
+            The project you are looking for might have been deleted or doesn't
+            exist.
           </p>
         </div>
         <Link href="/dashboard/projects">

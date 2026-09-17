@@ -11,7 +11,10 @@ interface FeaturedProjectCardProps {
   index: number;
 }
 
-export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps) {
+export function FeaturedProjectCard({
+  project,
+  index,
+}: FeaturedProjectCardProps) {
   const router = useRouter();
 
   const combinedTech = [
@@ -23,15 +26,20 @@ export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps
   const heroImage = project.images?.[0]?.imageUrl || "/placeholder-project.png";
 
   return (
-    <div className="w-full flex justify-center py-4 sm:py-8 lg:py-12">
-      {/* 
-        মোবাইলে স্বাভাবিক ফ্লেক্স কলাম (ইমেজ ওপরে, কার্ড নিচে মাঝে)
-        ডেস্কটপে রিলেটিভ বক্স যার মধ্যে দুটি কার্ড স্কেচ অনুযায়ী ওভারল্যাপ করবে 
-      */}
+    <div className="w-full flex justify-center py-6 sm:py-10 lg:py-14">
+      {/* মেইন কম্পোজিশন বক্স */}
       <div className="relative w-full max-w-[980px] flex flex-col items-center lg:block lg:min-h-[440px]">
-        
-        {/* ১. ইমেজ কার্ড: মোবাইলে ১০০% সেন্ট্রাল, ডেস্কটপে ডানে উপরে */}
-        <div className="w-full sm:w-[92%] lg:w-[72%] lg:ml-auto aspect-[16/10] sm:aspect-[16/9] lg:h-[390px] rounded-[14px] overflow-hidden shadow-md shadow-neutral-950/5 relative select-none border border-neutral-200/70 bg-neutral-100 z-0">
+        {/* 
+          🔥 সুস্পষ্ট এবং ভাইব্রেন্ট অরেঞ্জ গ্লো (Center Junction Glow) 🔥
+          সাদা ব্যাকগ্রাউন্ডেও স্পষ্ট দেখতে অপাসিটি এবং কালার তীব্রতা বাড়ানো হয়েছে
+        */}
+        <div
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-[45%] lg:top-[50%] w-[320px] sm:w-[500px] lg:w-[620px] h-[220px] sm:h-[300px] bg-gradient-to-r from-orange-500/50 via-amber-500/40 to-orange-600/45 rounded-full blur-[65px] sm:blur-[80px] pointer-events-none -z-10"
+        />
+
+        {/* ১. পেছনের ইমেজ কার্ড */}
+        <div className="w-full sm:w-[92%] lg:w-[72%] lg:ml-auto aspect-[16/10] sm:aspect-[16/9] lg:h-[390px] rounded-[10px] overflow-hidden shadow-lg shadow-neutral-950/5 relative select-none border border-neutral-200/70 bg-neutral-100 z-0">
           <Image
             src={heroImage}
             alt={project.name}
@@ -43,14 +51,10 @@ export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps
           <div className="absolute inset-0 bg-gradient-to-tr from-black/25 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        {/* 
-          ২. কন্টেন্ট কার্ড:
-          মোবাইলে: ইমেজের নিচেই -mt-10 বা -mt-14 দিয়ে হালকা সেন্টারে ভাসবে
-          ডেস্কটপে: lg:absolute lg:left-0 lg:bottom-0 দিয়ে বামের নিচে ড্রপ করবে
-        */}
+        {/* ২. সামনের কন্টেন্ট কার্ড */}
         <div
           onClick={() => router.push(`/projects/${project.slug || project.id}`)}
-          className="cursor-pointer relative z-10 w-[94%] sm:w-[86%] lg:w-[470px] -mt-12 sm:-mt-16 lg:mt-0 lg:absolute lg:left-0 lg:bottom-0 rounded-[14px] bg-white/95 backdrop-blur-md p-5 sm:p-7 shadow-xl shadow-orange-950/10 border border-orange-200/80 hover:border-orange-400 transition-all duration-300 group hover:-translate-y-1"
+          className="cursor-pointer relative z-10 w-[94%] sm:w-[86%] lg:w-[470px] -mt-12 sm:-mt-16 lg:mt-0 lg:absolute lg:left-0 lg:bottom-0 rounded-[10px] bg-white/95 backdrop-blur-md p-5 sm:p-7 shadow-xl shadow-orange-950/10 border border-orange-200/80 hover:border-orange-400 transition-all duration-300 group hover:-translate-y-1"
         >
           {/* Top Meta */}
           <div className="flex items-center justify-between gap-2 mb-2.5">
@@ -89,7 +93,7 @@ export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps
             ))}
           </div>
 
-          {/* Action Links (প্রোপাগেশন বন্ধ রাখা হয়েছে যাতে ডিটেইলস পেজে যাওয়ার বদলে লিংক ওপেন হয়) */}
+          {/* Action Links */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="pt-3.5 border-t border-neutral-100 flex items-center gap-2 flex-wrap"
@@ -145,7 +149,6 @@ export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps
             )}
           </div>
         </div>
-
       </div>
     </div>
   );

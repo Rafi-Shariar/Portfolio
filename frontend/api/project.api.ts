@@ -1,7 +1,6 @@
 import apiClient from "@/lib/apiClient";
 import { ICreateProject, IUpdateProject } from "@/types/project.type";
 
-
 // ================= PUBLIC APIS ================= //
 
 export const getFeaturedProjects = () => {

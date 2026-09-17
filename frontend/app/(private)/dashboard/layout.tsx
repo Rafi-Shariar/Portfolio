@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Menu, Bell } from "lucide-react";
 import Sidebar from "@/components/dashbaord/Sidebar";
 
-
 export default function DashboardLayout({
   children,
 }: {

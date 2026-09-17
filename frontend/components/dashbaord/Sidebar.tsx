@@ -87,7 +87,9 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                       : "text-neutral-600 hover:bg-orange-50/70 hover:text-orange-600"
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-neutral-500"}`} />
+                  <Icon
+                    className={`w-4 h-4 ${isActive ? "text-white" : "text-neutral-500"}`}
+                  />
                   <span>{item.name}</span>
                 </Link>
               );

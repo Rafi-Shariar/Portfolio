@@ -1,7 +1,8 @@
 // lib/uploadImage.ts
 
-export const uploadImageToCloudinary = async (file: File): Promise<string | null> => {
-
+export const uploadImageToCloudinary = async (
+  file: File,
+): Promise<string | null> => {
   if (!file) return null;
 
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -22,13 +23,13 @@ export const uploadImageToCloudinary = async (file: File): Promise<string | null
       {
         method: "POST",
         body: formData,
-      }
+      },
     );
 
     const data = await res.json();
 
     if (res.ok && data.secure_url) {
-      return data.secure_url; 
+      return data.secure_url;
     } else {
       console.error("Cloudinary error:", data.error?.message);
       return null;

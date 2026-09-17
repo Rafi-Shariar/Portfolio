@@ -1,7 +1,6 @@
 import apiClient from "@/lib/apiClient";
 import { IUpdateProfile } from "@/types/profile.type";
 
-
 export const getProfile = () => {
   return apiClient("/api/v1/profile");
 };

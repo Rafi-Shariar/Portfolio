@@ -62,7 +62,7 @@ export default function SkillFormModal({
             onError: (err: any) => {
               toast.error(err?.message || "Failed to update skill.");
             },
-          }
+          },
         );
       } else {
         createSkill(value, {
@@ -113,7 +113,8 @@ export default function SkillFormModal({
           <form.Field name="name">
             {(field) => {
               const isInvalid =
-                field.state.meta.isTouched && field.state.meta.errors.length > 0;
+                field.state.meta.isTouched &&
+                field.state.meta.errors.length > 0;
               return (
                 <div className="space-y-1.5">
                   <Label
@@ -145,7 +146,8 @@ export default function SkillFormModal({
           <form.Field name="category">
             {(field) => {
               const isInvalid =
-                field.state.meta.isTouched && field.state.meta.errors.length > 0;
+                field.state.meta.isTouched &&
+                field.state.meta.errors.length > 0;
               return (
                 <div className="space-y-1.5">
                   <Label

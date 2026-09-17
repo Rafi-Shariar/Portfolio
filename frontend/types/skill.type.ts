@@ -1,11 +1,11 @@
 export interface ICreateSkill {
   name: string;
-  category : string
+  category: string;
 }
 
 export interface IUpdateSkill {
-    id : string,
-    payload : ICreateSkill
+  id: string;
+  payload: ICreateSkill;
 }
 
 export interface ISkill {
