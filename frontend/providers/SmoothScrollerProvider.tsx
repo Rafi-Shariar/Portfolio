@@ -11,28 +11,55 @@ export default function SmoothScrollProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    // ১. Lenis ইনিশিয়ালাইজেশন (ফাস্ট এবং লাক্সারি রেসপন্সিভ টিউনিং)
     const lenis = new Lenis({
-      duration: 1.1, // স্ক্রোলের সময়কাল (খুব বেশি দিলে স্লো লাগে, ১.০ - ১.২ হচ্ছে সুইট স্পট)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // এক্সপোনেনশিয়াল ইজিং (বাটারি স্মুথ ফিল)
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
-      gestureOrientation: "vertical",
       smoothWheel: true,
       touchMultiplier: 1.5,
     });
 
-    // ২. GSAP ScrollTrigger এর সাথে সিঙ্ক করা
+    // Window-তে lenis রেফারেন্স রাখা যাতে যেকোনো জায়গা থেকে lenis.scrollTo() কল করা যায়
+    (window as unknown as { lenis: Lenis }).lenis = lenis;
+
     lenis.on("scroll", ScrollTrigger.update);
 
-    // GSAP টিকারে Lenis কে যুক্ত করা (আলাদা requestAnimationFrame লুপের দরকার নেই)
     const updateTicker = (time: number) => {
       lenis.raf(time * 1000);
     };
 
     gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0); // ল্যাগ স্মুথিং অফ রাখলে স্ক্রোল কখনোই স্টুটার/আটকে থাকবে না
+    gsap.ticker.lagSmoothing(0);
+
+    // পেজের সব হ্যাশ লিংকের (#about, #skills, #projects) জাম্প ইন্টারসেপ্ট করা
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (!target) return;
+
+      const href = target.getAttribute("href");
+      if (!href) return;
+
+      // যদি লিংকটি পেজের ভেতরের আইডি বা হ্যাস হয় (যেমন: #projects বা /#projects)
+      if (href.startsWith("#") || (href.startsWith("/#") && window.location.pathname === "/")) {
+        const hash = href.startsWith("/#") ? href.replace("/", "") : href;
+        const targetElement = document.querySelector(hash);
+
+        if (targetElement) {
+          e.preventDefault();
+          lenis.scrollTo(targetElement as HTMLElement, {
+            offset: -80, // ফিক্সড হেডারের উচ্চতা অনুযায়ী অফসেট
+            duration: 1.4,
+          });
+          // URL হ্যাশ আপডেট করা (ইতিহাস না ভেঙে)
+          history.pushState(null, "", hash);
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
 
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
       gsap.ticker.remove(updateTicker);
       lenis.destroy();
     };

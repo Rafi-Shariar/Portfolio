@@ -159,7 +159,7 @@ export default function HeroBanner() {
       >
         {/* Background Script Text */}
         <div className="banner-bg-script absolute top-6 sm:top-12 inset-x-0 flex items-center justify-center pointer-events-none z-0">
-          <span className="italic text-5xl sm:text-8xl md:text-9xl lg:text-[135px] text-neutral-800/10 sm:text-neutral-800/12 tracking-wide whitespace-nowrap font-serif">
+          <span className="italic text-5xl sm:text-8xl md:text-9xl lg:text-[135px] text-neutral-800/10 sm:text-neutral-800/12 tracking-wide whitespace-nowrap ">
             Hey, there
           </span>
         </div>

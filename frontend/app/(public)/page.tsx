@@ -1,5 +1,7 @@
 import AboutSection from "@/components/homepage/AboutSection";
 import HeroBanner from "@/components/homepage/Banner";
+import ContactSection from "@/components/homepage/ContactSection";
+import EducationSection from "@/components/homepage/EducationSection";
 import FeaturedProjectsSection from "@/components/homepage/projects/FeaturedProjectSection";
 import SkillsSection from "@/components/homepage/SkillSection";
 import Image from "next/image";
@@ -11,6 +13,8 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <FeaturedProjectsSection />
+      <EducationSection/>
+      <ContactSection/>
     </div>
   );
 }

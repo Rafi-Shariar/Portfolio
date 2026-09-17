@@ -65,7 +65,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="w-full py-20 sm:py-28 bg-[#FDFBF7] border-y border-orange-100/70 relative"
+      className="w-full py-20 sm:py-16 bg-[#FDFBF7] border-y border-orange-100/70 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
