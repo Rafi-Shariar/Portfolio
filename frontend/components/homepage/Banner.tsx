@@ -44,7 +44,7 @@ export default function HeroBanner() {
             duration: 1,
             ease: "power2.out",
           },
-          "-=0.6"
+          "-=0.6",
         )
         .from(
           ".banner-side-element",
@@ -54,7 +54,7 @@ export default function HeroBanner() {
             stagger: 0.08,
             duration: 0.6,
           },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".banner-bottom-dock",
@@ -64,10 +64,10 @@ export default function HeroBanner() {
             duration: 0.6,
             ease: "back.out(1.4)",
           },
-          "-=0.4"
+          "-=0.4",
         );
     },
-    { scope: bannerRef }
+    { scope: bannerRef },
   );
 
   return (

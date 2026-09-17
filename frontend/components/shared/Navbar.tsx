@@ -18,7 +18,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   // Replace with your Google Drive resume link
-  const resumeDriveLink = "https://drive.google.com/file/d/1cCUKSrsh9I3wO036vwgAPpUeq7iiou_C/view?usp=sharing";
+  const resumeDriveLink =
+    "https://drive.google.com/file/d/1cCUKSrsh9I3wO036vwgAPpUeq7iiou_C/view?usp=sharing";
 
   useGSAP(
     () => {
@@ -28,29 +29,28 @@ export default function Navbar() {
         y: -20,
         opacity: 0,
         duration: 0.6,
-      })
-        .from(
-          ".nav-item",
-          {
-            y: -15,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.06,
-          },
-          "-=0.3"
-        )
-        // .from(
-        //   ".nav-resume-btn",
-        //   {
-        //     scale: 0.9,
-        //     opacity: 0,
-        //     duration: 0.5,
-        //     ease: "back.out(1.5)",
-        //   },
-        //   "-=0.2"
-        // );
+      }).from(
+        ".nav-item",
+        {
+          y: -15,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.06,
+        },
+        "-=0.3",
+      );
+      // .from(
+      //   ".nav-resume-btn",
+      //   {
+      //     scale: 0.9,
+      //     opacity: 0,
+      //     duration: 0.5,
+      //     ease: "back.out(1.5)",
+      //   },
+      //   "-=0.2"
+      // );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -65,9 +65,7 @@ export default function Navbar() {
           className="nav-brand flex items-center gap-2.5 text-xl font-bold tracking-tight text-neutral-900"
         >
           <span className="w-3 h-3 rounded-full bg-orange-500 shadow-sm shadow-orange-500/50" />
-          <span>
-            RAFI SHARIAR
-          </span>
+          <span>RAFI SHARIAR</span>
         </Link>
 
         {/* Desktop Navigation & Resume Button */}
@@ -106,7 +104,11 @@ export default function Navbar() {
           className="md:hidden p-2 rounded-lg text-neutral-800 hover:bg-orange-50 transition-colors"
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X className="w-6 h-6 text-orange-600" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? (
+            <X className="w-6 h-6 text-orange-600" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </div>
 

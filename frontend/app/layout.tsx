@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
+import { Toaster } from "sonner";
+import Providers from "@/providers";
 
 const josefinSans = Josefin_Sans({
   subsets: ["latin"],
@@ -20,9 +22,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefinSans.className} antialiased min-h-full flex flex-col`}>
-        <Navbar/>
+      <body
+        className={`${josefinSans.className} antialiased min-h-full flex flex-col`}
+      >
+        <Providers>
+       
         {children}
+        <Toaster />
+        </Providers>
       </body>
     </html>
   );
